@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>batman.png</file>
+        <file>hhh.gif</file>
+        <file>returnArrow.png</file>
+        <file>board.png</file>
+        <file>again.png</file>
+        <file>back.png</file>
+        <file>black.png</file>
+        <file>white.png</file>
+        <file>debug.png</file>
+        <file>score.png</file>
+    </qresource>
+</RCC>
