@@ -81,34 +81,46 @@ int after_computer(int x,int y){//0表示赢了，1表示没事
     return 1;
 }
 dot find_point(vector<dot>ComputerWin, vector<dot>HumanWin) {
-    if (ComputerWin.size() != 0 && ComputerWin.front().total_score > 100) {
+    if (ComputerWin.size() != 0 && ComputerWin.front().total_score > 110) {
         dot temp = ComputerWin.front();
         return temp;
-    }//我方必胜点和致命点1的，这步将形成必胜点，可以宣布我们赢了
+    }
     else {
-        if (HumanWin.size() != 0 && PlayerWin.front().total_score > 100) {
+        if (HumanWin.size() != 0 && PlayerWin.front().total_score > 110) {
             dot temp = PlayerWin.front();
             return temp;
             //computer_stepP1_change();
-        }//对方必胜点和致命点1，此步用于破坏对方当前最需要下的一步**注意他和第一步的区别
+        }
         else {
-            if (ComputerWin.size() != 0 && ComputerWin.front().total_score > 1) {//此时要形成致命点1
-                /*下面是电脑下了之后对玩家的影响*/
-                dot temp = ComputerWin.front();//如果进行到现在，说明剩下的是等级不高的致命点2**因为若是等级高的在第一个if已经解决
+            if (ComputerWin.size() != 0 && ComputerWin.front().total_score > 100) {
+                dot temp = ComputerWin.front();
                 return temp;
-                //computer_stepC2_change();
-            }//我方致命点2
+            }//我方必胜点和致命点1的，这步将形成必胜点，可以宣布我们赢了
             else {
-                if (HumanWin.size() != 0 && HumanWin.front().total_score > 1) {
-                    dot temp = HumanWin.front();
+                if (HumanWin.size() != 0 && PlayerWin.front().total_score > 100) {
+                    dot temp = PlayerWin.front();
                     return temp;
-                    //computer_stepP2_change();
-                }//对方致命点2
-                else return most_score();//打分函数
+                    //computer_stepP1_change();
+                }//对方必胜点和致命点1，此步用于破坏对方当前最需要下的一步**注意他和第一步的区别
+                else {
+                    if (ComputerWin.size() != 0 && ComputerWin.front().total_score > 1) {//此时要形成致命点1
+                        /*下面是电脑下了之后对玩家的影响*/
+                        dot temp = ComputerWin.front();//如果进行到现在，说明剩下的是等级不高的致命点2**因为若是等级高的在第一个if已经解决
+                        return temp;
+                        //computer_stepC2_change();
+                    }//我方致命点2
+                    else {
+                        if (HumanWin.size() != 0 && HumanWin.front().total_score > 1) {
+                            dot temp = HumanWin.front();
+                            return temp;
+                            //computer_stepP2_change();
+                        }//对方致命点2
+                        else return most_score();//打分函数
+                    }
+                }
             }
         }
     }
-
 }
 //void computer_stepP2_change() {
 //    dot temp = HumanWin.front();
