@@ -262,9 +262,9 @@ bool Widget::eventFilter(QObject *watched, QEvent *event){
                         board[comPoint.x][comPoint.y]=1;
                         if(!maintainSituation(turn,comPoint)){
                             computerWin();
+                            turn=0;
                             return true;
                         }
-                        widget->update();
                         turn=0;
                     }
                 }
